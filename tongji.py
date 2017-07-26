@@ -10,11 +10,11 @@ sys.setdefaultencoding('utf-8')
 def toDodishi(a,b,c):
     # 各地市sql语句
 
-    sql = 'SELECT b.bank , t.cardRead , SUM(t.dealNum) as "bishu" , ' \
+    sql = 'SELECT b.banknm , t.cardRead , SUM(t.dealNum) as "bishu" , ' \
           'SUM(t.dealAmount)/1000000 as "jine"  FROM jourdetail201706 t INNER JOIN bank b ' \
           'ON SUBSTRING(t.codebank,1,4) = b.`code` WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("364")' \
           ' AND t.cardRead IN ("1", "3") AND t.cardType IN ("02","03")  GROUP BY' \
-          ' b.bank, t.cardRead ORDER BY b.bank, t.cardRead'
+          ' b.banknm, t.cardRead ORDER BY b.bank, t.cardRead'
 
     return a
 
@@ -40,20 +40,20 @@ try:
     with connection.cursor() as cursor:
         # 执行sql语句，插入记录
         #各地市sql语句
-        sql = 'SELECT b.bank , t.cardRead , SUM(t.dealNum) as "bishu" , ' \
+        sql = 'SELECT b.banknm , t.cardRead , SUM(t.dealNum) as "bishu" , ' \
               'SUM(t.dealAmount)/1000000 as "jine"  FROM jourdetail201706 t INNER JOIN bank b ' \
               'ON SUBSTRING(t.codebank,1,4) = b.`code` WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("364")' \
               ' AND t.cardRead IN ("1", "3") AND t.cardType IN ("02","03")  GROUP BY' \
-              ' b.bank, t.cardRead ORDER BY b.bank, t.cardRead'
+              ' b.banknm, t.cardRead ORDER BY b.banknm, t.cardRead'
 
         cursor.execute(sql);
         data = cursor.fetchall()
-        ws.write(0, 0, 'bank')  # 在1行1列写入age
+        ws.write(0, 0, 'banknm')  # 在1行1列写入age
         ws.write(0, 1, 'cardread')  # 在1行2列写入name
         ws.write(0, 2, 'delNum')  # 在1行3列写入id
         ws.write(0, 3, 'delAm')  # 在1行3列写入id
         for row in data:
-            bank = row['bank']
+            bank = row['banknm']
             cardRead = row['cardRead']
             dealNum = row['bishu']
             dealAm = row['jine']

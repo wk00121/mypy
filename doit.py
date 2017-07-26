@@ -168,10 +168,6 @@ try:
             ws.write(i, 21, delNum)  # 在2行3列写入id
             ws.write(i, 22, delAm)  # 在2行3列写入id
             print str(bankcd) + " " + banknm + " " + str(cardtp) + " " + str(delNum) + " " + str(delAm)
-
-
-
-
             # 没有设置默认自动提交，需要主动提交，以保存所执行的语句
     connection.commit()
     # 各发卡机构 贷记、磁条
