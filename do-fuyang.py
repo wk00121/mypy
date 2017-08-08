@@ -30,7 +30,7 @@ try:
         sql = 'SELECT b.banknm AS "banknm", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum) AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" ' \
               'FROM jourdetail201707 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
-              'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("366") ' \
+              'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("372","373") ' \
               'AND t.cardRead IN ("1")' \
               'AND t.cardType IN ("01")' \
               ' GROUP BY b.banknm, t.cardRead,b.rank' \
@@ -62,7 +62,7 @@ try:
         sql1 ='SELECT b.banknm AS "banknm", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum) AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" ' \
               'FROM jourdetail201707 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
-              'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("366") ' \
+              'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("372","373") ' \
               'AND t.cardRead IN ("1")' \
               'AND t.cardType IN ("02","03")' \
               ' GROUP BY b.banknm, t.cardRead,b.rank' \
@@ -94,7 +94,7 @@ try:
         sql2= 'SELECT b.banknm AS "banknm", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum) AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" ' \
               'FROM jourdetail201707 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
-              'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("366") ' \
+              'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("372","373") ' \
               'AND t.cardRead IN ("3")' \
               'AND t.cardType IN ("01")' \
               ' GROUP BY b.banknm, t.cardRead,b.rank' \
@@ -128,7 +128,7 @@ try:
         sql3 ='SELECT b.banknm AS "banknm", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum) AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" ' \
               'FROM jourdetail201707 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
-              'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("366") ' \
+              'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("372","373") ' \
               'AND t.cardRead IN ("3")' \
               'AND t.cardType IN ("02","03")' \
               ' GROUP BY b.banknm, t.cardRead,b.rank' \
@@ -160,4 +160,4 @@ try:
     connection.commit()
 finally:
     connection.close();
-w.save('dishi-huaibei.xls')  # 保存
+w.save('dishi-fuyang.xls')  # 保存

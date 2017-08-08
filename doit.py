@@ -29,14 +29,14 @@ try:
         # 各发卡机构 借记、磁条
         sql = 'SELECT r.`bankcd`, b.banknm, r.`cardtp`, r.`delNum`, r.`delAm` FROM bank b RIGHT JOIN ' \
               '(SELECT SUBSTRING(t.codebank,1,4) AS "bankcd", t.cardRead AS "cardtp", ' \
-              'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" FROM jourdetail201706 t ' \
+              'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" FROM jourdetail201707 t ' \
               'WHERE t.cardRead IN ("1") ' \
               'AND t.cardType in ("01") ' \
               'GROUP BY SUBSTRING(t.codebank,1,4), t.cardRead ' \
               'ORDER BY SUBSTRING(t.codebank,1,4), t.cardRead) r ' \
               'ON b.`code` = r.`bankcd` ' \
-              'GROUP BY b.banknm, r.`cardtp`,b.rank ' \
-              'ORDER BY b.banknm, r.`cardtp`,b.rank'
+              'GROUP BY b.banknm, r.`cardtp`,b.rank2 ' \
+              'ORDER BY b.rank2'
         cursor.execute(sql);
         data = cursor.fetchall()
         ws.write(0, 0, 'bankcd')  # 在1行1列写入发卡行编码
@@ -66,14 +66,14 @@ try:
         data = None
         sql1 = 'SELECT r.`bankcd`, b.banknm, r.`cardtp`, r.`delNum`, r.`delAm` FROM bank b RIGHT JOIN ' \
                '(SELECT SUBSTRING(t.codebank,1,4) AS "bankcd", t.cardRead AS "cardtp", ' \
-               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" FROM jourdetail201706 t ' \
+               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" FROM jourdetail201707 t ' \
                'WHERE t.cardRead IN ("1") ' \
                'AND t.cardType in ("02","03") ' \
                'GROUP BY SUBSTRING(t.codebank,1,4), t.cardRead ' \
                'ORDER BY SUBSTRING(t.codebank,1,4), t.cardRead) r ' \
                'ON b.`code` = r.`bankcd` ' \
-               'GROUP BY b.banknm, r.`cardtp`,b.rank ' \
-               'ORDER BY b.banknm, r.`cardtp`,b.rank'
+               'GROUP BY b.banknm, r.`cardtp`,b.rank2 ' \
+               'ORDER BY b.rank2'
         cursor.execute(sql1);
         data = cursor.fetchall()
         ws.write(0, 6, 'bankcd')  # 在1行1列写入发卡行编码
@@ -103,14 +103,14 @@ try:
         data = None
         sql1 = 'SELECT r.`bankcd`, b.banknm, r.`cardtp`, r.`delNum`, r.`delAm` FROM bank b RIGHT JOIN ' \
                '(SELECT SUBSTRING(t.codebank,1,4) AS "bankcd", t.cardRead AS "cardtp", ' \
-               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" FROM jourdetail201706 t ' \
+               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" FROM jourdetail201707 t ' \
                'WHERE t.cardRead IN ("3") ' \
                'AND t.cardType in ("01") ' \
                'GROUP BY SUBSTRING(t.codebank,1,4), t.cardRead ' \
                'ORDER BY SUBSTRING(t.codebank,1,4), t.cardRead) r ' \
                'ON b.`code` = r.`bankcd` ' \
-               'GROUP BY b.banknm, r.`cardtp`,b.rank ' \
-               'ORDER BY b.banknm, r.`cardtp`,b.rank'
+               'GROUP BY b.banknm, r.`cardtp`,b.rank2 ' \
+               'ORDER BY b.rank2'
         cursor.execute(sql1);
         data = cursor.fetchall()
         ws.write(0, 12, 'bankcd')  # 在1行1列写入发卡行编码
@@ -138,14 +138,14 @@ try:
         data = None
         sql1 = 'SELECT r.`bankcd`, b.banknm, r.`cardtp`, r.`delNum`, r.`delAm` FROM bank b RIGHT JOIN ' \
                '(SELECT SUBSTRING(t.codebank,1,4) AS "bankcd", t.cardRead AS "cardtp", ' \
-               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" FROM jourdetail201706 t ' \
+               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" FROM jourdetail201707 t ' \
                'WHERE t.cardRead IN ("3") ' \
                'AND t.cardType in ("02","03") ' \
                'GROUP BY SUBSTRING(t.codebank,1,4), t.cardRead ' \
                'ORDER BY SUBSTRING(t.codebank,1,4), t.cardRead) r ' \
                'ON b.`code` = r.`bankcd` ' \
-               'GROUP BY b.banknm, r.`cardtp`,b.rank ' \
-               'ORDER BY b.banknm, r.`cardtp`,b.rank'
+               'GROUP BY b.banknm, r.`cardtp`,b.rank2 ' \
+               'ORDER BY b.rank2'
         cursor.execute(sql1);
         data = cursor.fetchall()
         ws.write(0, 18, 'bankcd')  # 在1行1列写入发卡行编码

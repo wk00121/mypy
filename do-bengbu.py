@@ -29,7 +29,7 @@ try:
         # 各地市 磁条、借记
         sql = 'SELECT b.banknm AS "banknm", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum) AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" ' \
-              'FROM jourdetail201706 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
+              'FROM jourdetail201707 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
               'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("363") ' \
               'AND t.cardRead IN ("1")' \
               'AND t.cardType IN ("01")' \
@@ -61,7 +61,7 @@ try:
         data = None
         sql1 ='SELECT b.banknm AS "banknm", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum) AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" ' \
-              'FROM jourdetail201706 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
+              'FROM jourdetail201707 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
               'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("363") ' \
               'AND t.cardRead IN ("1")' \
               'AND t.cardType IN ("02","03")' \
@@ -93,7 +93,7 @@ try:
         data = None
         sql2= 'SELECT b.banknm AS "banknm", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum) AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" ' \
-              'FROM jourdetail201706 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
+              'FROM jourdetail201707 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
               'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("363") ' \
               'AND t.cardRead IN ("3")' \
               'AND t.cardType IN ("01")' \
@@ -127,7 +127,7 @@ try:
         data = None
         sql3 ='SELECT b.banknm AS "banknm", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum) AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm" ' \
-              'FROM jourdetail201706 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
+              'FROM jourdetail201707 t INNER JOIN bank b ON SUBSTRING(t.codebank,1,4) = b.`code` ' \
               'WHERE SUBSTRING(t.acceptInstitution, 5, 3) IN ("363") ' \
               'AND t.cardRead IN ("3")' \
               'AND t.cardType IN ("02","03")' \

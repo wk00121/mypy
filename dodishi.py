@@ -30,7 +30,7 @@ try:
         sql = ' SELECT r.`dishicd`,b.`citynm`,r.`delNum`,r.`delAm`,b.rank from citys b right join' \
               '(select SUBSTRING(t.acceptInstitution, 5, 3) AS "dishicd", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm"  ' \
-              ' FROM jourdetail201706 t ' \
+              ' FROM jourdetail201707 t ' \
               'WHERE t.cardType IN ("01") ' \
               'AND t.cardRead IN ("1") ' \
               ' GROUP BY SUBSTRING(t.acceptInstitution, 5, 3), t.cardRead ) r' \
@@ -63,7 +63,7 @@ try:
         sql1 =' SELECT r.`dishicd`,b.`citynm`,r.`delNum`,r.`delAm`,b.rank from citys b right join' \
               '(select SUBSTRING(t.acceptInstitution, 5, 3) AS "dishicd", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm"  ' \
-              ' FROM jourdetail201706 t ' \
+              ' FROM jourdetail201707 t ' \
               'WHERE t.cardType IN ("02","03") ' \
               'AND t.cardRead IN ("1") ' \
               ' GROUP BY SUBSTRING(t.acceptInstitution, 5, 3), t.cardRead ) r' \
@@ -96,7 +96,7 @@ try:
         sql2= ' SELECT r.`dishicd`,b.`citynm`,r.`delNum`,r.`delAm`,b.rank from citys b right join' \
               '(select SUBSTRING(t.acceptInstitution, 5, 3) AS "dishicd", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm"  ' \
-              ' FROM jourdetail201706 t ' \
+              ' FROM jourdetail201707 t ' \
               'WHERE t.cardType IN ("01") ' \
               'AND t.cardRead IN ("3") ' \
               ' GROUP BY SUBSTRING(t.acceptInstitution, 5, 3), t.cardRead ) r' \
@@ -130,7 +130,7 @@ try:
         sql3 = ' SELECT r.`dishicd`,b.`citynm`,r.`delNum`,r.`delAm`,b.rank from citys b right join' \
               '(select SUBSTRING(t.acceptInstitution, 5, 3) AS "dishicd", t.cardRead AS "cardtp", ' \
               'SUM(t.dealNum)/10000 AS "delNum", SUM(t.dealAmount)/1000000 AS "delAm"  ' \
-              ' FROM jourdetail201706 t ' \
+              ' FROM jourdetail201707 t ' \
               'WHERE t.cardType IN ("02","03") ' \
               'AND t.cardRead IN ("3") ' \
               ' GROUP BY SUBSTRING(t.acceptInstitution, 5, 3), t.cardRead ) r' \
